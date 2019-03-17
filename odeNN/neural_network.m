@@ -1,0 +1,7 @@
+function output = neural_network( W1, W2, x )
+%UNTITLED3 Summary of this function goes here
+%   Detailed explanation goes here
+    a1 = sigmoid(x' * W1);
+    output = a1 * W2;
+end
+
