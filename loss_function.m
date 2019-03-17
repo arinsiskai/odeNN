@@ -4,7 +4,7 @@ function loss_sum = loss_function( W1, W2, x )
     ss = 0;
     %disp('loss_function');
     for i = 1:size(x,2)
-        xi = x(i);
+        xi = x_space(i);
         net_out = neural_network(W1,W2,xi);
         psy_t = 1 + xi * net_out;
         d_net_out = d_neural_network_dx(W1,W2, xi);
@@ -14,6 +14,6 @@ function loss_sum = loss_function( W1, W2, x )
         
         ss = ss + error_sqr;
     end
-    loss_sum = ss
+    loss_sum = ss;
 end
 

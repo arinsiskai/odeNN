@@ -1,5 +1,6 @@
 nx = 10;
 dx = 1 / nx;
+rng (1);
 
 x_space = 0:dx:1;
 y_space = psy_analytic(x_space);
@@ -25,11 +26,9 @@ tmp1 = 0;
 tmp2 = 0;
 
 for i = 1:epoch
-    for j = 1: 1 : length(x_space)
-         loss = loss_function(W1, W2, x_space(j));
-         loss_grad1 = gradient(loss_function(W1, W2, x_space(j)));
-         loss_grad2 = gradient(loss_function(W1, W2, x_space(j)));
-    end
+         loss = loss_function(W1, W2, x_space);
+         loss_grad1 = gradient(loss_function(W1, W2, x_space));
+         loss_grad2 = gradient(loss_function(W1, W2, x_space));
     
     temp1 = W1 - learning_rate * loss_grad1;
     temp2 = W2 - learning_rate * loss_grad2';
